@@ -12,9 +12,12 @@
 
 <body>
   
-  <button type="button" onclick="addRandomToTree()">Add node</button>
-  <button type="button" onclick="resetTree()">Reset</button>
+<button type="button" onclick="resetTree()">Reset</button>
   <script>
+  document.addEventListener('click', function (event) {
+
+  addRandomToTree();
+  });
     // Feel free to change or delete any of the code you see in this editor!
 var width = 600;
 var height = 600;
@@ -138,7 +141,8 @@ const convertLinkToXY = (item) => {
 };
 
 let tree = new Tree();
-tree.add(50);
+var randInt = getRndInteger(-100, 100);
+tree.add(randInt);
 /*
     tree.add(4);
 tree.add(3);
@@ -199,7 +203,8 @@ var linkGen = d3.linkVertical();
 var prevLink=[]
 function resetTree() {
   tree = new Tree();
-  tree.add(50);
+  var randInt = getRndInteger(-100,100);
+  tree.add(randInt);
 	
   var treeArray = preorderTraverse(tree.root, [], 0, 0, 1);
   
@@ -215,7 +220,7 @@ function resetTree() {
 }
 var newValue = 0
 function addRandomToTree() {
-  var randInt = Math.floor(Math.random() * 100);
+  var randInt = getRndInteger(-100,100);
   newValue = randInt;
   tree.clearVisited();
   tree.add(randInt);
@@ -305,14 +310,11 @@ function updateTree(treeArray,treelinkArrayBef,treelinkArrayAft){
   
   nodes = enter.merge(nodes);
   
-  
-  
-  
-
-
 }
     
-
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
 
   </script>
 </body>
