@@ -14,10 +14,10 @@
   
 <button type="button" onclick="resetTree()">Reset</button>
   <script>
-  document.addEventListener('click', function (event) {
-
+window.addEventListener("keydown", (evt) => {
+  if (evt.keyCode !== 32) return;
   addRandomToTree();
-  });
+});
     // Feel free to change or delete any of the code you see in this editor!
 var width = 600;
 var height = 600;
@@ -315,6 +315,12 @@ function updateTree(treeArray,treelinkArrayBef,treelinkArrayAft){
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
+window.addEventListener("mousedown", (evt) => {
+  const pos = [evt.clientX, evt.clientY];
+  console.log(pos,"+++++++++++++");
+  // get object at position;
+  // remove value at that position from tree
+});
 
   </script>
 </body>
